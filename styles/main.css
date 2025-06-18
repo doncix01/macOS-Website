@@ -1,0 +1,371 @@
+/* Alap stílusok */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    overflow: hidden;
+    position: relative;
+}
+
+#bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+.macos-window {
+    width: 90%;
+    max-width: 1200px;
+    height: 80vh;
+    background-color: rgba(0, 0, 0, 0.801);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+/* Menüsor */
+.menu-bar {
+    background: linear-gradient(to bottom, #000000, #000000);
+    height: 25px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border-bottom: 1px solid #575656;
+    font-size: 13px;
+    color: #ffffff;
+}
+
+.apple-logo {
+    font-size: 16px;
+    margin-right: 15px;
+}
+
+.menu-item {
+    margin-right: 15px;
+    cursor: default;
+}
+
+.menu-item:hover {
+    color: #0066cc;
+}
+
+.clock {
+    margin-left: auto;
+}
+
+/* Tartalom */
+/* Középre zárt tartalom */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+.centered-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.centered-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.centered-content .subtitle {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+    line-height: 1.5;
+    color: #c2bdbd;
+}
+
+/* Közösségi média ikonok */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.social-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #6cb65b;
+    transition: transform 0.3s ease;
+    width: 80px;
+}
+
+.social-icon i {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.social-icon span {
+    font-size: 0.9em;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px);
+}
+
+.social-icon:hover i.fa-tiktok {
+    color: #FE2C55;
+}
+
+.social-icon:hover i.fa-discord {
+    color: #5865F2;
+}
+
+.social-icon:hover i.fa-instagram {
+    color: #E1306C;
+}
+
+.social-icon:hover i.fa-github {
+    color: #ffffff;
+}
+
+/* Dock */
+.dock {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(20px);
+    border-radius: 18px;
+    padding: 8px 15px;
+    display: flex;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dock-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 8px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.4);
+    position: relative;
+}
+
+.dock-item img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+    object-fit: contain;
+}
+
+.dock-item span {
+    font-size: 12px;
+    color: #333;
+    opacity: 0;
+    transition: all 0.3s ease;
+    position: absolute;
+    bottom: -20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.dock-item:hover {
+    transform: scale(1.2) translateY(-10px);
+}
+
+.dock-item:hover img {
+    transform: scale(1.1);
+}
+
+.dock-item:hover span {
+    opacity: 1;
+    transform: translateY(5px);
+}
+
+/* Aktuális oldal jelzése */
+.dock-item.active {
+    transform: translateY(-5px);
+}
+
+.dock-item.active img {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+}
+
+.dock-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    width: 4px;
+    height: 4px;
+    background: #007AFF;
+    border-radius: 50%;
+}
+
+/* Állapotsor */
+.status-bar {
+    background: linear-gradient(to bottom, #000000, #000000);
+    height: 22px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border-top: 1px solid #575656;
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.status-item {
+    margin-right: 15px;
+}
+
+.status-item:last-child {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+
+
+
+/* Animációk - Finomított változat */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.459);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    backdrop-filter: blur(10px);
+}
+
+.page-transition.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: #0071e3;
+    animation: spin 1s linear infinite;
+    position: relative;
+}
+
+.loading-spinner::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 4px solid transparent;
+    border-radius: 50%;
+    border-top-color: rgba(0, 113, 227, 0.5);
+    animation: spin 1.5s linear infinite reverse;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.macos-window {
+    transition: 
+        transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+        opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+        filter 0.5s ease;
+}
+
+.macos-window.fade-out {
+    transform: scale(0.98);
+    opacity: 0;
+    filter: blur(2px);
+}
+
+/* Bérelérés animáció */
+@keyframes fadeIn {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.centered-content h1 {
+    animation: fadeIn 0.8s ease-out 0.2s both;
+}
+
+.centered-content .subtitle {
+    animation: fadeIn 0.8s ease-out 0.4s both;
+}
+
+.social-links {
+    animation: fadeIn 0.8s ease-out 0.6s both;
+}
+
+/* Ikon hover animációk */
+.social-icon {
+    transition: 
+        transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        color 0.2s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.15) translateY(-5px);
+}
+
+/* Dock item animációk */
+.dock-item {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.4);
+}
+
+.dock-item:hover {
+    transform: scale(1.2) translateY(-10px);
+}
+
+.dock-item:hover img {
+    transform: scale(1.1);
+}
+
+.dock-item:hover span {
+    opacity: 1;
+    transform: translateY(5px);
+}
