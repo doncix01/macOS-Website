@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dönci - Rólam</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="../scripts/transition.js" defer></script>
+</head>
+<body>
+    <video autoplay muted loop id="bg-video">
+        <source src="../macos-bg.mp4" type="video/mp4">
+    </video>
+
+    <div class="macos-window">
+        <div class="menu-bar">
+            <div class="apple-logo">🌐</div>
+            <div class="menu-item">donci.lol</div>
+            <div class="menu-item">Fájl</div>
+            <div class="menu-item">Szerkesztés</div>
+            <div class="menu-item">Nézet</div>
+            <div class="menu-item">Ablak</div>
+            <div class="menu-item">Súgó</div>
+            <div class="menu-item clock" id="clock">12:00 PM</div>
+        </div>
+
+        <div class="content">
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="../images/profile.jpg" alt="Profilkép">
+                </div>
+                <div class="about-text">
+                    <h1>Rólam</h1>
+                    <p class="subtitle">Ismerj meg jobban!</p>
+                    
+                    <div class="bio">
+                        <h2>Szia! Egy kis infó rólam:</h2>
+                        <p>Szakmám ipari informatikus, melette van egy-két hobbim amit a hobbik oldalon találhattok! </p>
+                        <p>Ha beszélni szeretnél ott a Discord szerver csatlakozz kis közösségünkbe!</p>
+                    </div>
+                    
+                    <div class="skills">
+                        <h3>Amihez jól értek</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Python🐍</li>
+                            <li><i class="fas fa-check"></i> Szerverfejlesztés💻</li>
+                            <li><i class="fas fa-check"></i> PC/Laptop szerelés🪛</li>
+                        </ul>
+                        <h3>Amihez kevésbé értek</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> HTML/CSS🖋️</li>
+                            <li><i class="fas fa-check"></i> JavaScript♨️</li>
+                            <li><i class="fas fa-check"></i> Webfejlesztés🌐</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dock">
+            <div class="dock-item" data-href="../index.html">
+                <img src="../images/app-icons/finder.png" alt="Finder">
+                <span>Főoldal</span>
+            </div>
+            <div class="dock-item active" data-href="about.html">
+                <img src="../images/app-icons/about.png" alt="Rólam">
+                <span>Rólam</span>
+            </div>
+            <div class="dock-item" data-href="services.html">
+                <img src="../images/app-icons/services.png" alt="Szolgáltatások">
+                <span>Hobbik</span>
+            </div>
+            <div class="dock-item" data-href="contact.html">
+                <img src="../images/app-icons/contact.png" alt="Kapcsolat">
+                <span>Egyebek</span>
+            </div>
+        </div>
+
+        <div class="status-bar">
+            <div class="status-item">donci.lol v1.0</div>
+            <div class="status-item">100%</div>
+            <div class="status-item">Lan</div>
+            <div class="status-item">Battery</div>
+        </div>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            document.getElementById('clock').textContent = `${hours}:${minutes} ${ampm}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
